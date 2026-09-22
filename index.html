@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growthly — Digital Marketing Agency</title>
+<meta name="description" content="Growthly is a results-driven digital marketing agency helping ambitious brands grow through SEO, paid advertising, social media and strategy.">
+<style>
+:root{
+  --bg:#08090d; --panel:#101219; --panel2:#151821; --text:#f5f7fb; --muted:#9ca3b1;
+  --line:rgba(255,255,255,.09); --accent:#8b5cf6; --accent2:#22d3ee; --max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+.nav{position:sticky;top:0;z-index:50;background:rgba(8,9,13,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:22px;font-weight:800;letter-spacing:-.8px}.logo span{color:var(--accent2)}
+.nav-links{display:flex;gap:30px;color:#c8ccd6;font-size:14px}
+.nav-links a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:10px;font-weight:700;font-size:14px;border:1px solid var(--line);transition:.25s}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#6d5dfc);border:0;box-shadow:0 10px 30px rgba(139,92,246,.25)}
+.btn:hover{transform:translateY(-2px)}
+.menu{display:none;background:none;border:0;color:white;font-size:24px}
+.hero{padding:105px 0 90px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:600px;height:600px;right:-200px;top:-200px;background:radial-gradient(circle,rgba(139,92,246,.18),transparent 65%);pointer-events:none}
+.eyebrow{display:inline-flex;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:#cdd1dc;font-size:12px;margin-bottom:22px;background:rgba(255,255,255,.025)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+h1{font-size:clamp(48px,7vw,78px);line-height:.98;letter-spacing:-4px;max-width:760px}
+.gradient{background:linear-gradient(90deg,#fff 15%,#a78bfa 55%,#67e8f9);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:600px;margin:25px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.metrics{display:flex;gap:35px;margin-top:42px}.metric strong{display:block;font-size:25px}.metric span{font-size:12px;color:var(--muted)}
+.dashboard{background:linear-gradient(145deg,#151823,#0e1016);border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.dash-top{display:flex;justify-content:space-between;color:#aeb4c2;font-size:12px}.live{color:#86efac}
+.chart{height:250px;margin-top:20px;border-radius:15px;background:
+linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+background-size:50px 50px;position:relative;overflow:hidden}
+.chart svg{width:100%;height:100%}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}.kpi{background:#0c0e13;padding:14px;border:1px solid var(--line);border-radius:12px}.kpi small{color:var(--muted);font-size:10px}.kpi strong{display:block;font-size:17px}
+.section{padding:100px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:42px}.section-head h2{font-size:42px;line-height:1.05;letter-spacing:-2px}.section-head p{color:var(--muted);max-width:470px}
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:25px 0}.trust p{text-align:center;color:#707786;font-size:12px;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}.logos{display:flex;justify-content:space-between;gap:20px;color:#69707d;font-weight:800;font-size:18px;flex-wrap:wrap}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.25s}.card:hover{transform:translateY(-5px);border-color:rgba(139,92,246,.45)}
+.icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(139,92,246,.13);color:#c4b5fd;font-weight:800;margin-bottom:22px}
+.card h3{font-size:19px;margin-bottom:8px}.card p{color:var(--muted);font-size:14px}.card a{display:inline-block;margin-top:20px;color:#c4b5fd;font-size:13px;font-weight:700}
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-visual{min-height:440px;border-radius:22px;border:1px solid var(--line);background:linear-gradient(145deg,#181a24,#0c0e13);position:relative;overflow:hidden}
+.orb{position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#67e8f9,#8b5cf6 45%,transparent 70%);filter:blur(10px);left:20%;top:20%}
+.float-card{position:absolute;right:9%;bottom:12%;background:#0b0d12;border:1px solid var(--line);padding:18px;border-radius:15px;width:190px}.float-card strong{font-size:30px}.float-card span{color:#86efac;font-size:12px}
+.list{display:grid;gap:14px;margin-top:25px}.list div{display:flex;gap:12px;color:#d8dbe2;font-size:14px}.check{color:#67e8f9}
+.process{counter-reset:step}.process .card{position:relative}.num{font-size:12px;color:#8b5cf6;font-weight:800;margin-bottom:25px}
+.case{display:grid;grid-template-columns:1.1fr .9fr;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}.case-img{min-height:390px;background:radial-gradient(circle at 70% 35%,rgba(34,211,238,.3),transparent 30%),linear-gradient(145deg,#191b2a,#0d0f15);position:relative}.case-img:after{content:"";position:absolute;inset:55px 55px auto;height:210px;border:1px solid rgba(255,255,255,.13);border-radius:15px;transform:rotate(-5deg);box-shadow:0 30px 70px rgba(0,0,0,.3)}.case-copy{padding:55px}.case-copy p{color:var(--muted);margin:15px 0 25px}.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.result{padding:15px;background:#0b0d12;border:1px solid var(--line);border-radius:12px}.result strong{font-size:23px;display:block}.result span{font-size:11px;color:var(--muted)}
+.quote{text-align:center;max-width:850px;margin:auto}.quote blockquote{font-size:31px;line-height:1.25;letter-spacing:-1px}.quote cite{display:block;margin-top:20px;color:var(--muted);font-style:normal;font-size:13px}
+.faq{max-width:850px;margin:auto}.faq-item{border-top:1px solid var(--line)}.faq-q{width:100%;background:none;border:0;color:white;text-align:left;padding:21px 0;font-size:16px;font-weight:700;display:flex;justify-content:space-between;cursor:pointer}.faq-a{display:none;color:var(--muted);font-size:14px;padding:0 30px 20px 0}.faq-item.open .faq-a{display:block}
+.cta{background:linear-gradient(135deg,#171326,#0f1820);border:1px solid var(--line);border-radius:25px;padding:70px;text-align:center}.cta h2{font-size:48px;line-height:1.05;letter-spacing:-2px}.cta p{color:var(--muted);margin:16px auto 26px;max-width:550px}
+footer{padding:50px 0;border-top:1px solid var(--line);margin-top:100px}.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:40px}.footer-title{font-size:12px;color:#7f8694;text-transform:uppercase;margin-bottom:15px}.footer-links{display:grid;gap:8px;color:#a7adba;font-size:13px}.copyright{border-top:1px solid var(--line);margin-top:40px;padding-top:20px;color:#656b77;font-size:12px;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(18px);transition:.7s}.reveal.show{opacity:1;transform:none}
+@media(max-width:850px){
+ .nav-links,.nav .btn{display:none}.menu{display:block}.hero{padding-top:75px}.hero-grid,.about,.case{grid-template-columns:1fr}.hero-grid{gap:45px}h1{letter-spacing:-2.5px}.grid-3{grid-template-columns:1fr 1fr}.section{padding:75px 0}.case-copy{padding:35px}.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+ .container{width:min(var(--max),calc(100% - 28px))}.grid-3,.footer-grid{grid-template-columns:1fr}.hero p{font-size:16px}.metrics{gap:18px;flex-wrap:wrap}.metric strong{font-size:21px}.section-head{display:block}.section-head h2{font-size:35px;margin-bottom:15px}.quote blockquote{font-size:24px}.cta{padding:45px 22px}.cta h2{font-size:36px}.copyright{display:block}.copyright span{display:block;margin-top:8px}.about-visual{min-height:330px}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#">Growth<span>ly.</span></a>
+    <nav class="nav-links">
+      <a href="#services">Services</a><a href="#about">About</a><a href="#work">Case Studies</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#contact">Let's Talk →</a>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+ <div class="container hero-grid">
+  <div class="reveal">
+   <div class="eyebrow">● RESULTS-DRIVEN DIGITAL MARKETING AGENCY</div>
+   <h1>Turn attention into <span class="gradient">business growth.</span></h1>
+   <p>We build high-performance digital marketing systems that attract the right audience, generate qualified leads and turn clicks into customers.</p>
+   <div class="actions"><a class="btn btn-primary" href="#contact">Get Free Strategy Call →</a><a class="btn" href="#work">View Our Work</a></div>
+   <div class="metrics"><div class="metric"><strong>150+</strong><span>Projects delivered</span></div><div class="metric"><strong>48+</strong><span>Brands scaled</span></div><div class="metric"><strong>4.9/5</strong><span>Client rating</span></div></div>
+  </div>
+  <div class="dashboard reveal">
+    <div class="dash-top"><span>Campaign Overview</span><span class="live">● Live</span></div>
+    <div class="chart">
+      <svg viewBox="0 0 500 250" preserveAspectRatio="none" aria-label="Growth chart">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#8b5cf6"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+        <path d="M0 205 C45 200 55 175 95 185 S150 145 190 160 S245 105 285 125 S345 75 380 92 S440 38 500 48" fill="none" stroke="url(#g)" stroke-width="5"/>
+        <path d="M0 205 C45 200 55 175 95 185 S150 145 190 160 S245 105 285 125 S345 75 380 92 S440 38 500 48 L500 250 L0 250Z" fill="url(#g)" opacity=".08"/>
+      </svg>
+    </div>
+    <div class="kpis"><div class="kpi"><small>ROAS</small><strong>4.8x</strong></div><div class="kpi"><small>Leads</small><strong>+184%</strong></div><div class="kpi"><small>Revenue</small><strong>+126%</strong></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="trust"><div class="container"><p>Trusted by ambitious brands</p><div class="logos"><span>VERVE</span><span>NOVO</span><span>PIXELCO</span><span>ARC</span><span>MONO</span><span>FWD.</span></div></div></section>
+
+<section class="section" id="services">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">OUR SERVICES</div><h2>Everything you need<br>to grow online.</h2></div><p>From strategy to execution, our specialists build a connected marketing engine around your business goals.</p></div>
+  <div class="grid-3">
+   <article class="card reveal"><div class="icon">01</div><h3>Search Engine Optimization</h3><p>Build sustainable organic visibility and attract high-intent customers through technical and content-led SEO.</p><a href="#contact">Explore service →</a></article>
+   <article class="card reveal"><div class="icon">02</div><h3>Paid Advertising</h3><p>Performance-focused Google and social campaigns designed to maximize qualified leads and profitable growth.</p><a href="#contact">Explore service →</a></article>
+   <article class="card reveal"><div class="icon">03</div><h3>Social Media</h3><p>Strategy, creative and community systems that make your brand visible, memorable and shareable.</p><a href="#contact">Explore service →</a></article>
+   <article class="card reveal"><div class="icon">04</div><h3>Content Marketing</h3><p>Conversion-ready content that educates your audience, earns trust and supports every stage of the funnel.</p><a href="#contact">Explore service →</a></article>
+   <article class="card reveal"><div class="icon">05</div><h3>Email Marketing</h3><p>Automations and campaigns that nurture leads, increase retention and turn customers into repeat buyers.</p><a href="#contact">Explore service →</a></article>
+   <article class="card reveal"><div class="icon">06</div><h3>Web & CRO</h3><p>Fast, focused landing experiences built to reduce friction and convert more of the traffic you already earn.</p><a href="#contact">Explore service →</a></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="container about">
+  <div class="about-visual reveal"><div class="orb"></div><div class="float-card"><span>Monthly growth</span><strong>+72%</strong><div style="color:#9ca3b1;font-size:11px">vs. previous period</div></div></div>
+  <div class="reveal"><div class="eyebrow">WHY GROWTHLY</div><h2 style="font-size:42px;line-height:1.05;letter-spacing:-2px">We don't just run campaigns. We build growth systems.</h2><p style="color:var(--muted);margin-top:18px">Your marketing should work as one connected system. We combine creative thinking, data and performance marketing to create momentum that compounds.</p>
+   <div class="list"><div><span class="check">✓</span> Data-backed strategy and clear priorities</div><div><span class="check">✓</span> Transparent reporting with business-focused metrics</div><div><span class="check">✓</span> Senior specialists, not a handoff-heavy process</div><div><span class="check">✓</span> Continuous testing and optimization</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="process">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">OUR PROCESS</div><h2>A simple path from<br>idea to growth.</h2></div><p>No complicated handoffs. Every project starts with understanding your business and ends with measurable progress.</p></div>
+  <div class="grid-3 process">
+   <article class="card reveal"><div class="num">01 / DISCOVER</div><h3>Understand</h3><p>We audit your market, audience, funnel and existing performance to identify the biggest opportunities.</p></article>
+   <article class="card reveal"><div class="num">02 / STRATEGIZE</div><h3>Plan</h3><p>We build a focused roadmap across channels, creative, measurement and conversion priorities.</p></article>
+   <article class="card reveal"><div class="num">03 / EXECUTE</div><h3>Launch</h3><p>Our team turns the strategy into campaigns, content and experiences designed for action.</p></article>
+   <article class="card reveal"><div class="num">04 / MEASURE</div><h3>Learn</h3><p>We track the metrics that matter and use real performance data to guide decisions.</p></article>
+   <article class="card reveal"><div class="num">05 / OPTIMIZE</div><h3>Improve</h3><p>Creative, audiences, offers and landing pages are continuously tested to unlock new gains.</p></article>
+   <article class="card reveal"><div class="num">06 / SCALE</div><h3>Grow</h3><p>Once we find what works, we build systems to scale it without losing efficiency.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="work">
+ <div class="container">
+  <div class="section-head reveal"><div><div class="eyebrow">CASE STUDY</div><h2>Results that speak<br>for themselves.</h2></div><a class="btn" href="#contact">View all case studies →</a></div>
+  <div class="case reveal"><div class="case-img"></div><div class="case-copy"><div class="eyebrow">E-COMMERCE / PAID MEDIA</div><h2 style="font-size:34px;line-height:1.1">How we helped an e-commerce brand scale profitable acquisition.</h2><p>We rebuilt the acquisition strategy, refreshed creative testing and improved the landing experience around high-intent audiences.</p><div class="results"><div class="result"><strong>+185%</strong><span>Revenue</span></div><div class="result"><strong>4.8x</strong><span>ROAS</span></div><div class="result"><strong>-32%</strong><span>CPA</span></div></div></div></div>
+ </div>
+</section>
+
+<section class="section">
+ <div class="container"><div class="quote reveal"><div class="eyebrow">CLIENT FEEDBACK</div><blockquote>“Growthly gave us a clear strategy, executed fast and helped us understand exactly what was driving our growth.”</blockquote><cite>— Sarah Ahmed, Founder at VERVE</cite></div></div>
+</section>
+
+<section class="section" id="faq">
+ <div class="container"><div class="section-head reveal"><div><div class="eyebrow">FAQ</div><h2>Questions, answered.</h2></div></div>
+  <div class="faq reveal">
+   <div class="faq-item"><button class="faq-q">What services do you offer? <span>+</span></button><div class="faq-a">We offer SEO, paid advertising, social media marketing, content, email marketing, web and conversion optimization.</div></div>
+   <div class="faq-item"><button class="faq-q">How long before we see results? <span>+</span></button><div class="faq-a">It depends on the channel and starting point. Paid campaigns can generate data quickly, while SEO and content typically require a longer compounding period.</div></div>
+   <div class="faq-item"><button class="faq-q">Do you work with small businesses? <span>+</span></button><div class="faq-a">Yes. We tailor the scope and channel mix to your stage, goals and available resources.</div></div>
+   <div class="faq-item"><button class="faq-q">How do you measure success? <span>+</span></button><div class="faq-a">We connect marketing metrics to business outcomes such as qualified leads, customer acquisition cost, revenue and return on ad spend.</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container"><div class="cta reveal"><div class="eyebrow">LET'S GROW</div><h2>Ready to turn your marketing into a growth engine?</h2><p>Tell us where you are today and where you want to go. We'll map the opportunities.</p><a class="btn btn-primary" href="mailto:hello@growthly.example">Book a Free Strategy Call →</a></div></div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footer-grid">
+   <div><a class="logo" href="#">Growth<span>ly.</span></a><p style="color:#7f8694;font-size:13px;margin-top:14px;max-width:280px">Digital marketing for ambitious brands ready to grow with clarity and confidence.</p></div>
+   <div><div class="footer-title">Company</div><div class="footer-links"><a href="#about">About</a><a href="#work">Case Studies</a><a href="#process">Process</a></div></div>
+   <div><div class="footer-title">Services</div><div class="footer-links"><a href="#services">SEO</a><a href="#services">Paid Ads</a><a href="#services">Social Media</a></div></div>
+   <div><div class="footer-title">Contact</div><div class="footer-links"><a href="mailto:hello@growthly.example">hello@growthly.example</a><a href="#contact">Book a call</a></div></div>
+  </div>
+  <div class="copyright"><span>© 2026 Growthly. All rights reserved.</span><span>Privacy · Terms</span></div>
+ </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => entries.forEach(e => e.isIntersecting && e.target.classList.add('show')), {threshold:.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.querySelectorAll('.faq-q').forEach(btn => btn.addEventListener('click', () => btn.parentElement.classList.toggle('open')));
+</script>
+</body>
+</html>
